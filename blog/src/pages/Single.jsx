@@ -1,20 +1,20 @@
-import React, { useState, useEffect, useContext } from 'react'
-import {Link, useLocation} from 'react-router-dom'
-import Edit from '../image/edit.png'
-import Del from '../image/delete.png'
-import Menu from '../components/menu'
-import moment from 'moment'
-import axios from 'axios'
-import { AuthContext } from '../context/authContext'
+import React, { useState, useEffect, useContext } from 'react';
+import {Link, useLocation} from 'react-router-dom';
+import Edit from '../image/edit.png';
+import Del from '../image/delete.png';
+import Menu from '../components/menu';
+import moment from 'moment';
+import axios from 'axios';
+import { AuthContext } from '../context/authContext';
 
 export const Single = () => {
   const [post,setPost] = useState({});
 
-  const location = useLocation()
+  const location = useLocation();
 
-  const postId = location.pathname.split("/")[2]
+  const postId = location.pathname.split("/")[2];
 
-  const {currentUser} = useContext(AuthContext)
+  const {currentUser} = useContext(AuthContext);
 
   useEffect(()=>{
       const fetchData =  async () =>{
@@ -47,9 +47,7 @@ export const Single = () => {
       </div>)}
       </div>
       <h1>{post.title}</h1>
-      {/* <p> */}
-        {post.description}
-      {/* </p> */}
+        {post.desc}
       </div>
       <div className="menu">
         <Menu />
