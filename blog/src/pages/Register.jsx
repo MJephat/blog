@@ -21,7 +21,7 @@ const Register = () => {
   const handleSubmit = async e =>{
     e.preventDefault()
     try{
-      await axios.post("/auth/register", inputs)
+      await axios.post("https://blog-server-git-main-mjephat.vercel.app/auth/register", inputs)
       navigate("/login")
     } catch(err){
       // console.log(err)

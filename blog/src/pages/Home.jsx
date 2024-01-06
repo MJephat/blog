@@ -12,7 +12,7 @@ const Home = () => {
     useEffect(()=>{
         const fetchData =  async () =>{
             try{
-                const res = await axios.get(`/posts${cat}`);
+                const res = await axios.get(`https://blog-server-git-main-mjephat.vercel.app/posts${cat}`);
                 setPosts(res.data);
             }catch(err){
                 console.log(err);
