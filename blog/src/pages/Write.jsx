@@ -22,7 +22,7 @@ const Write = () => {
     try{
       const formData = new FormData();
       formData.append('file', file);
-      const res = await axios.post("https://blog-server-git-main-mjephat.vercel.app/upload", formData);
+      const res = await axios.post("/blog-server-git-main-mjephat.vercel.app/upload", formData);
       return res.data
     }catch(err){
       console.log(err)
@@ -33,10 +33,10 @@ const handleClick = async e =>{
   const imgUrl = await upload();
 
   try{
-  state ? await axios.put(`https://blog-server-git-main-mjephat.vercel.app/posts/${state.id}`,{
+  state ? await axios.put(`/blog-server-git-main-mjephat.vercel.app/posts/${state.id}`,{
     title,desc:value,cat,img:file ? imgUrl : "",
   }) 
-  :  await axios.post(`https://blog-server-git-main-mjephat.vercel.app/posts/`,{
+  :  await axios.post(`/blog-server-git-main-mjephat.vercel.app/posts/`,{
     title,
     desc:value,
     cat,

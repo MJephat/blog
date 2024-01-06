@@ -19,7 +19,7 @@ export const Single = () => {
   useEffect(()=>{
       const fetchData =  async () =>{
           try{
-              const res = await axios.get(`https://blog-server-git-main-mjephat.vercel.app/posts/${postId}`);
+              const res = await axios.get(`/blog-server-git-main-mjephat.vercel.app/posts/${postId}`);
               setPost(res.data);
           }catch(err){
               console.log(err);
@@ -31,7 +31,7 @@ export const Single = () => {
 
   const handleDelete = async () => {
     try{
-      await axios.delete(`https://blog-server-git-main-mjephat.vercel.app/posts/${postId}`);
+      await axios.delete(`/blog-server-git-main-mjephat.vercel.app/posts/${postId}`);
       navigate("/")
     }catch(err){
       console.log(err);
