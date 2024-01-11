@@ -24,12 +24,12 @@ const upload = multer({ storage })
 
 app.post('/api/upload', upload.single('file'), function (req, res) {
     const file = req.file;
+    // console.log(file.size);
+    console.log("Done uploading");
     res.status(200).json(file.filename)
 })
 
-// app.use("/", (req, res) => {
-//     res.json({message: "Hello db conecting"});
-// })
+
 
 app.use("/api/posts", postRoutes)
 app.use("/api/users", userRoutes)

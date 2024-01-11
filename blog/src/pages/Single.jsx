@@ -6,6 +6,7 @@ import Menu from '../components/menu';
 import moment from 'moment';
 import axios from 'axios';
 import { AuthContext } from '../context/authContext';
+import DOMPurify from "dompurify";
 
 export const Single = () => {
   const [post,setPost] = useState({});
@@ -38,6 +39,12 @@ export const Single = () => {
     }
   }
 
+  const getText = (html) =>{
+    const doc = new DOMParser().parseFromString(html, "text/html")
+    return doc.body.textContent
+  }
+
+
 
   return (
     <div className="single">
@@ -60,7 +67,11 @@ export const Single = () => {
       </div>)}
       </div>
       <h1>{post.title}</h1>
-        {post.desc}
+      <p
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(post.desc),
+          }}
+        ></p>
       </div>
       <div className="menu">
         <Menu cat={post.cat}/>

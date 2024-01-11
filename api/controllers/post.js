@@ -34,6 +34,7 @@ export const addPost = (req, res) =>{
   
       const q =
         "INSERT INTO posts(`title`, `desc`, `img`, `cat`, `date`,`uid`) VALUES (?)";
+      // console.log(q);
   
       const values = [
         req.body.title,
@@ -85,7 +86,12 @@ export const updatePost = (req, res) =>{
       const q =
         "UPDATE posts SET `title`=?,`desc`=?,`img`=?,`cat`=? WHERE `id` = ? AND `uid` = ?";
   
-      const values = [req.body.title, req.body.desc, req.body.img, req.body.cat];
+      const values = [
+        req.body.title, 
+        req.body.desc, 
+        req.body.img, 
+        req.body.cat
+      ];
   
       db.query(q, [...values, postId, userInfo.id], (err, data) => {
         if (err) return res.status(500).json(err);
