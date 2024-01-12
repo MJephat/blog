@@ -31,7 +31,7 @@ app.post('/api/upload', upload.single('file'), function (req, res) {
 
 
 
-app.use("https://blog-n3sa-server.vercel.app/api/posts", postRoutes)
+app.use("/api/posts", postRoutes)
 app.use("https://blog-n3sa-server.vercel.app/api/users", userRoutes)
 app.use("https://blog-n3sa-server.vercel.app/api/auth", authRoutes)
 
