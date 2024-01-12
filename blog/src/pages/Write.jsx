@@ -36,7 +36,7 @@ const handleClick = async (e) =>{
 
   try {
     console.log("step 1");
-    state ? await axios.put(`https://blog-n3sa-server.vercel.app/api/posts/${state.id}`,{
+    state ? await axios.put(`https://blog-n3sa-server.vercel.app/posts/${state.id}`,{
       title,desc:value,cat,img:file ? imgUrl : "",
     }) 
     :  await axios.post(`/posts/`,{
