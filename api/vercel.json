@@ -4,10 +4,5 @@
         "src":"./index.js",
         "use": "@vercel/node"
     }],
-    "routers": [
-        {"src":"/(.*)","dest":"/api/posts"},
-        {"src":"/(.*)","dest":"/api/users"},
-        {"src":"/(.*)","dest":"/api/auth"}
-
-    ]
+    "routers": [{"src":"/(.*)","dest":"/api/posts"}]
 }
