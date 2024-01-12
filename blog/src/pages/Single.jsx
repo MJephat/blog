@@ -20,7 +20,7 @@ export const Single = () => {
   useEffect(()=>{
       const fetchData =  async () =>{
           try{
-              const res = await axios.get(`/posts/${postId}`);
+              const res = await axios.get(`https://blog-n3sa-server.vercel.app/api/posts/${postId}`);
               setPost(res.data);
           }catch(err){
               console.log(err);
@@ -32,7 +32,7 @@ export const Single = () => {
 
   const handleDelete = async () => {
     try{
-      await axios.delete(`/posts/${postId}`);
+      await axios.delete(`https://blog-n3sa-server.vercel.app/api/posts/${postId}`);
       navigate("/")
     }catch(err){
       console.log(err);
