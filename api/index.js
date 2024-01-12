@@ -5,9 +5,10 @@ import userRoutes from "./routes/users.js"
 import cookieParser from "cookie-parser"
 import multer from "multer"
 
-
+const cors = require('cors');
 const app = express()
 
+app.use(cors());
 app.use(express.json())
 app.use(cookieParser())
 
