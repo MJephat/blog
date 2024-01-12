@@ -22,7 +22,7 @@ const Write = () => {
     try{
       const formData = new FormData();
       formData.append("file", file);
-      const res = await axios.post("https://blog-n3sa-server.vercel.app/upload", formData);
+      const res = await axios.post("/upload", formData);
       return res.data
     }catch(err){
       console.log(err)
@@ -36,7 +36,7 @@ const handleClick = async (e) =>{
 
   try {
     console.log("step 1");
-    state ? await axios.put(`https://blog-n3sa-server.vercel.app/posts/${state.id}`,{
+    state ? await axios.put(`/posts/${state.id}`,{
       title,desc:value,cat,img:file ? imgUrl : "",
     }) 
     :  await axios.post(`/posts/`,{
