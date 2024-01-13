@@ -7,7 +7,7 @@ const Menu = ({cat}) => {
     useEffect(()=>{
         const fetchData = async () => {
             try{
-                const res = await axios.get(`https://blog-n3sa-server.vercel.app/api/posts/?cat=${cat}`);
+                const res = await axios.get(`https://blog-n3sa-server.vercel.app/posts/?cat=${cat}`);
                 setPosts(res.data);
             }catch (err){
                 console.log(err);
