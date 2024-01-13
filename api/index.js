@@ -4,12 +4,17 @@ import authRoutes from "./routes/auth.js"
 import userRoutes from "./routes/users.js"
 import cookieParser from "cookie-parser"
 import multer from "multer"
+import cors from "cors"
 
 
-const app = express()
+const app = express();
 
 app.use(express.json())
 app.use(cookieParser())
+
+app.use(cors({
+    origin:"*"
+}));
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb){
@@ -32,8 +37,8 @@ app.post('/api/upload', upload.single('file'), function (req, res) {
 
 
 app.use("/api/posts", postRoutes)
-app.use("https://blog-n3sa-server.vercel.app/api/users", userRoutes)
-app.use("https://blog-n3sa-server.vercel.app/api/auth", authRoutes)
+app.use("/api/users", userRoutes)
+app.use("/api/auth", authRoutes)
 
 
 app.listen(8080,() =>{
