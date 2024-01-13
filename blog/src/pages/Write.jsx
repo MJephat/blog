@@ -22,7 +22,7 @@ const Write = () => {
     try{
       const formData = new FormData();
       formData.append("file", file);
-      const res = await axios.post("/upload", formData);
+      const res = await axios.post("https://blog-n3sa-server.vercel.app/upload", formData);
       return res.data
     }catch(err){
       console.log(err)
@@ -32,25 +32,24 @@ const Write = () => {
 const handleClick = async (e) =>{
   e.preventDefault()
   const imgUrl = await upload();
-  console.log("step 0");
+ 
 
   try {
-    console.log("step 1");
-    state ? await axios.put(`/posts/${state.id}`,{
+   
+    state ? await axios.put(`https://blog-n3sa-server.vercel.app/posts/${state.id}`,{
       title,desc:value,cat,img:file ? imgUrl : "",
     }) 
-    :  await axios.post(`/posts/`,{
+    :  await axios.post(`https://blog-n3sa-server.vercel.app/posts/`,{
       title,
       desc:value,
       cat,
       img:file ? imgUrl : "",
       date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
     });
-    console.log("step 2");
+    
     navigate("/")
 
   } catch(err){
-    console.log("errrrrrrrr...");
     console.log(err)
   }
 }
