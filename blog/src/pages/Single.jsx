@@ -32,7 +32,7 @@ export const Single = () => {
 
   const handleDelete = async () => {
     try{
-      await axios.delete(`https://blog-n3sa-server.vercel.app/api/posts/${postId}`);
+      await axios.delete(`https://blog-n3sa-server.vercel.app/posts/${postId}`);
       navigate("/")
     }catch(err){
       console.log(err);
