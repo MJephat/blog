@@ -27,7 +27,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage })
 
-app.post('/api/upload', upload.single('file'), function (req, res) {
+app.post('https://blog-n3sa-server.vercel.app/api/upload', upload.single('file'), function (req, res) {
     const file = req.file;
     // console.log(file.size);
     console.log("Done uploading");
